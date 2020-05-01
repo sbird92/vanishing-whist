@@ -26,6 +26,17 @@ namespace vanishing_whist.app
             this.dateTimeNow = dateTimeNow;
             this.logger = loggers;
         }
+
+        public int GetWarningCount()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetErrorCount()
+        {
+            throw new NotImplementedException();
+        }
+
         public void AppStart(string name, string version, string description)
         {
             appStartTime = dateTimeNow.Now;
@@ -33,7 +44,8 @@ namespace vanishing_whist.app
             this.version = version;
             this.description = description;
 
-            logger.LogMessage(new Message(Newtonsoft.Json.JsonConvert.SerializeObject(this)));
+            logger.LogMessage(new Message($"Application Started: {appStartTime.ToLongDateString()};{Environment.NewLine}" +
+                $"App Name: {appName};{Environment.NewLine}App Version: {this.version};{Environment.NewLine}Description:{this.description}"));
         }
 
         public void AddError(ExceptionMessage message)

@@ -6,10 +6,10 @@ namespace VanishingWhist.Infrastructure.Logging
 {
     public class ExceptionMessage : Message
     {
-        private readonly Exception exception;
+        public Exception LogException { get; private set; }
         public ExceptionMessage(string message, Exception exception) : base(message)
         {
-            this.exception = exception;
+            LogException = exception;
         }
 
         public override string ToMessageString()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace VanishingWhist.Infrastructure.Logging
 {
@@ -20,7 +21,10 @@ namespace VanishingWhist.Infrastructure.Logging
 
         public void LogError(ExceptionMessage message)
         {
-            throw new NotImplementedException();
+            foreach (var logger in loggers)
+            {
+                logger.LogError(message);
+            }
         }
 
         public void LogMessage(Message message)
@@ -33,7 +37,10 @@ namespace VanishingWhist.Infrastructure.Logging
 
         public void LogWarning(Message message)
         {
-            throw new NotImplementedException();
+            foreach (var logger in loggers)
+            {
+                logger.LogWarning(message);
+            }
         }
     }
 }

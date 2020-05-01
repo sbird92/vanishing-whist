@@ -7,6 +7,8 @@ namespace VanishingWhist.Infrastructure
 {
     public interface ISummary
     {
+        int GetWarningCount();
+        int GetErrorCount();
         void AppStart(string name, string version, string description);
         void AddEvent(Message message);
         void AddWarning(Message message);

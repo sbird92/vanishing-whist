@@ -1,4 +1,6 @@
 ﻿
+using System.Threading.Tasks;
+
 namespace VanishingWhist.Infrastructure.Logging
 {
     public interface ILogger

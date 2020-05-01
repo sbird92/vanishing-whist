@@ -8,11 +8,13 @@ namespace vanishing_whist.app
 {
     public class AppFactory
     {
-        static AppFactory singleton;
+        static readonly AppFactory singleton;
         static AppFactory()
         {
-            singleton = new AppFactory();
-            singleton.AppSummary = BuildAppSummary();
+            singleton = new AppFactory
+            {
+                AppSummary = BuildAppSummary()
+            };
         }
 
         public AppSummary AppSummary { get; private set; }
